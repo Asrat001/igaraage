@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:garaage/presentation/performance_analytics/pages/ar_identify.dart';
 import '../../core/config/assets/app_icons.dart';
 import '../../core/config/theme/app_colors.dart';
-import '../../presentation/ar_identify/pages/ar_identify.dart';
 import '../../presentation/chatbot/pages/chatbot.dart';
 import '../../presentation/navigation/bloc/navigation_cubit.dart';
 
@@ -145,7 +144,7 @@ class MyBottomNavBar extends StatelessWidget {
         Navigator.of(context).pushNamed(ChatbotPage.routeName);
         break;
       case 3:
-        Navigator.of(context).pushNamed(ARIdentifyPage.routeName);
+        Navigator.of(context).pushNamed(PerformanceAnalyticsPage.routeName);
         break;
     }
   }

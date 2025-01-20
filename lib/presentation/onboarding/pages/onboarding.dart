@@ -34,7 +34,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           'Garaage doesn\'t just find problems, it guides you to solutions. Get step-by-step repair instructions and even parts recommendations.',
     },
     {
-      'title': 'Introducing Mika AI',
+      'title': 'Introducing መካኒክ AI',
       'description':
           'Confused about a diagnostic report? Our AI chatbot is ready to answer your questions, making car care less complicated.',
     },

@@ -36,13 +36,13 @@ class DiagnosticsPage extends StatefulWidget {
           'price': 6.99,
           'vendor': 'AutoZone',
           'link':
-              'https://www.autozone.com/cooling-heating-and-climate-control/thermostat/duralast-thermostat-15368/10007_0_0',
+              'https://www.linkedin.com/in/asrat-adane-50a521240/',
         },
         {
           'name': 'Coolant',
           'price': 14.99,
           'vendor': 'NAPA',
-          'link': 'https://www.napaonline.com/en/p/ZERCLC1',
+          'link': 'https://www.linkedin.com/in/asrat-adane-50a521240/',
         }
       ],
     },
@@ -68,13 +68,13 @@ class DiagnosticsPage extends StatefulWidget {
           'price': 199.99,
           'vendor': 'AutoZone',
           'link':
-              'https://www.autozone.com/emission-control-and-exhaust/catalytic-converter/davico-catalytic-converter-18200/10007_0_0',
+              'https://www.linkedin.com/in/asrat-adane-50a521240/',
         },
         {
           'name': 'Oxygen sensor',
           'price': 29.99,
           'vendor': 'NAPA',
-          'link': 'https://www.napaonline.com/en/p/NGO25024688',
+          'link': 'https://www.linkedin.com/in/asrat-adane-50a521240/',
         }
       ],
     },
@@ -261,7 +261,7 @@ class Chatbot extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Ask Mika AI',
+                  'Ask መካኒክ AI',
                   style: TextStyle(
                     color: AppColors.darkGrayDark,
                     fontWeight: FontWeight.bold,

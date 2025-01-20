@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garaage/presentation/add_car_info/pages/add_car_info.dart';
-
-import 'presentation/ar_identify/pages/ar_identify.dart';
+import 'package:garaage/presentation/performance_analytics/pages/ar_identify.dart';
 import 'presentation/auth/pages/register.dart';
 import 'presentation/auth/pages/sign_in.dart';
 import 'presentation/chatbot/pages/chatbot.dart';
@@ -18,6 +17,6 @@ final Map<String, WidgetBuilder> routes = {
   AddCarInfo.routeName:(context)=> AddCarInfo(),
   NavigationPage.routeName: (context) => const NavigationPage(),
   ProfilePage.routeName: (context) => const ProfilePage(),
-  ARIdentifyPage.routeName: (context) => const ARIdentifyPage(),
+  PerformanceAnalyticsPage.routeName: (context) => const PerformanceAnalyticsPage(),
   ChatbotPage.routeName: (context) => const ChatbotPage(),
 };

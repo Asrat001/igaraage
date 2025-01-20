@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../common/widgets/my_app_bar.dart';
 
-class ARIdentifyPage extends StatelessWidget {
+class PerformanceAnalyticsPage extends StatelessWidget {
   static String routeName = '/ar-identify';
 
-  const ARIdentifyPage({super.key});
+  const PerformanceAnalyticsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ARIdentifyPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Center(
-        child: Text('AR Identify Page is under construction.'),
+        child: Text('Performance Analytics Page is under construction.'),
       ),
     );
   }

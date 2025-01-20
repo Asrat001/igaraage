@@ -34,8 +34,6 @@ class VehicleCubit extends Cubit<VehicleState> {
 
 
 
-
-
   void clearVehicle() {
     emit(VehicleState(isLoading: false, vehicle: null, errorMsg: ""));
   }
