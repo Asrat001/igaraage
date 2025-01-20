@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:garaage/presentation/add_car_info/pages/add_car_info.dart';
 
 import 'presentation/ar_identify/pages/ar_identify.dart';
 import 'presentation/auth/pages/register.dart';
@@ -14,6 +15,7 @@ final Map<String, WidgetBuilder> routes = {
   SignInPage.routeName: (context) => SignInPage(),
   RegisterPage.routeName: (context) => RegisterPage(),
   ConnectPage.routeName: (context) => const ConnectPage(),
+  AddCarInfo.routeName:(context)=> AddCarInfo(),
   NavigationPage.routeName: (context) => const NavigationPage(),
   ProfilePage.routeName: (context) => const ProfilePage(),
   ARIdentifyPage.routeName: (context) => const ARIdentifyPage(),

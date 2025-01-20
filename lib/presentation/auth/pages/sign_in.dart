@@ -73,7 +73,6 @@ class SignInPage extends StatelessWidget {
                       (l) => ErrorHandler.handleError(context, l),
                       (r) async {
                         context.read<AuthCubit>().setCredentials(_email.text, _password.text);
-                        
                         var hasCarResult = await sl<CheckUserHasCarsUseCase>().call();
                         hasCarResult.fold(
                           (hasCars) {

@@ -1,3 +1,8 @@
+import 'package:garaage/data/datasources/vehicle_firebase_service.dart';
+import 'package:garaage/data/repositories/vehicle_repository_impl.dart';
+import 'package:garaage/domain/repositories/vehicle.dart';
+import 'package:garaage/domain/usecases/vehicle/get_vehicle.dart';
+import 'package:garaage/domain/usecases/vehicle/vehicle.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/datasources/ai_message_service.dart';
@@ -24,6 +29,12 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<SignInWithGoogleUseCase>(SignInWithGoogleUseCase());
   sl.registerSingleton<SignOutUseCase>(SignOutUseCase());
   sl.registerSingleton<CheckUserHasCarsUseCase>(CheckUserHasCarsUseCase());
+
+  //Vehicle services
+  sl.registerSingleton<VehicleFirebaseService>(VehicleFirebaseServiceImpl());
+  sl.registerSingleton<VehicleRepository>(VehicleRepositoryImpl());
+  sl.registerSingleton<AddVehicleUseCase>(AddVehicleUseCase());
+  sl.registerSingleton<GetVehicleUseCase>(GetVehicleUseCase());
 
   // Chat services
   sl.registerSingleton<AiMessageService>(AiMessageServiceImpl());

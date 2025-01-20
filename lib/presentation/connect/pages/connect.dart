@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_blue_classic/flutter_blue_classic.dart';
+import 'package:garaage/presentation/add_car_info/pages/add_car_info.dart';
+import 'package:garaage/presentation/connect/bloc/vehicle_state.dart';
 
 import '../../../common/widgets/my_app_bar.dart';
 import '../../../common/widgets/my_button.dart';
@@ -230,16 +232,15 @@ class _ConnectPageState extends State<ConnectPage> {
   }
 
   Widget _continueWithSampleData() {
-    return BlocBuilder<VehicleCubit, Map<String, dynamic>?>(
+    return BlocBuilder<VehicleCubit, VehicleState>(
       builder: (context, vehicleState) {
         return MyButton(
           type: 'secondary',
-          text: 'Continue with Sample Data Instead',
+          text: 'Continue with  Adding Manual Data',
           onPressed: () {
-            context.read<VehicleCubit>().addSampleVehicle();
-            Navigator.of(context).pushNamedAndRemoveUntil(
-              NavigationPage.routeName,
-              (route) => false,
+            context.read<VehicleCubit>().fetchVehicleData();
+            Navigator.of(context).pushNamed(
+              AddCarInfo.routeName,
             );
           },
         );

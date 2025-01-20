@@ -38,11 +38,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       'description':
           'Confused about a diagnostic report? Our AI chatbot is ready to answer your questions, making car care less complicated.',
     },
-    {
-      'title': 'Identify & Learn with AR',
-      'description':
-          'Use Augmented Reality to identify your car\'s model and discover the names of different parts just by pointing your camera.',
-    },
+
   ];
 
   @override

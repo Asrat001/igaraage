@@ -1,9 +1,7 @@
-import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:garaage/presentation/connect/bloc/vehicle_state.dart';
 import '../../../core/config/assets/app_images.dart';
 import '../../../common/widgets/my_app_bar.dart';
 import '../../../core/config/assets/app_icons.dart';
@@ -30,18 +28,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    final vehicleData = context.read<VehicleCubit>().state;
-    if (vehicleData == null) {
-      final user = FirebaseAuth.instance.currentUser;
-      if (user?.uid != null) {
-        try {
-          context.read<VehicleCubit>().fetchVehicleData(user!.uid);
-        } catch (e) {
-          ErrorHandler.handleError(context, e.toString());
-        }
-      }
+    context.read<VehicleCubit>().fetchVehicleData();
+
     }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,20 +64,26 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      body: BlocBuilder<VehicleCubit, Map<String, dynamic>?>(
+      body: BlocBuilder<VehicleCubit, VehicleState>(
         builder: (context, vehicleState) {
-          final vehicle = vehicleState ?? {};
+          final vehicle = vehicleState.vehicle;
+          if(vehicleState.isLoading){
+            return const Center(child: CircularProgressIndicator());
+          }
+          if(vehicleState.errorMsg.isNotEmpty){
+            return Center(child: Text('Error: ${vehicleState.errorMsg}'));
+          }
           return SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: vehicle.isEmpty
-                ? const Center(child: Text('Hmm... No vehicle data found'))
+            child: vehicleState.vehicle==null
+                ? const Center(child: Text('No vehicle data found.'))
                 : Column(
                     children: [
                       VehicleCard(
-                        name: vehicle['name'] as String,
-                        description: vehicle['description'] as String,
+                        name:vehicle!.name,
+                        description:vehicle.description,
                         image: Image.network(
-                          vehicle['image'] as String,
+                          vehicle.image,
                           fit: BoxFit.contain,
                           loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) return child;
@@ -100,17 +96,17 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         ),
-                        errors: vehicle['errors'] as int,
-                        transmission: vehicle['transmission'] as String,
-                        numSeats: vehicle['numSeats'] as int,
-                        status: vehicle['status'] as String,
+                        errors:vehicle.errors,
+                        transmission: vehicle.transmission,
+                        numSeats: vehicle.numSeats,
+                        status: vehicle.status
                       ),
                       const SizedBox(height: 10),
                       FuelConsumptionCard(
-                        currentConsumed: vehicle['status'] == 'Disconnected'
+                        currentConsumed: vehicle.status== 'Disconnected'
                             ? 0
-                            : vehicle['fuelConsumed'] as int,
-                        totalConsumed: vehicle['totalFuel'] as int,
+                            : int.parse(vehicle.fuelConsumed),
+                        totalConsumed:int.parse(vehicle.totalFuel)
                       ),
                       const SizedBox(height: 10),
                       Row(
@@ -119,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             flex: 4,
                             child: VehicleStatsCard(
-                              value: vehicle['speed'] as int,
+                              value:int.parse(vehicle.speed),
                               icon: AppIcons.broken['speed']!,
                               mainLabel: 'Speed',
                               subLabel: 'km/h',
@@ -129,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             flex: 6,
                             child: VehicleStatsCard(
-                              value: vehicle['rpm'] as int,
+                              value:int.parse(vehicle.rpm),
                               icon: AppIcons.broken['rpm']!,
                               mainLabel: 'Engine RPM',
                               fixAlignment: true,
@@ -144,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             flex: 6,
                             child: VehicleStatsCard(
-                              value: vehicle['battery'] as int,
+                              value:int.parse(vehicle.battery ),
                               icon: AppIcons.broken['battery']!,
                               mainLabel: 'Car Battery',
                               postfix: '%',
@@ -154,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             flex: 4,
                             child: VehicleStatsCard(
-                              value: vehicle['oil'] as int,
+                              value:int.parse(vehicle.oil),
                               icon: AppIcons.broken['drop']!,
                               mainLabel: 'Oil',
                               postfix: '%',
@@ -164,8 +160,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(height: 10),
                       VehicleStatsCard(
-                        value: vehicle['coolantCurrent'] as int,
-                        valueAlt: vehicle['coolantDesired'] as int,
+                        value: int.parse(vehicle.coolantCurrent) ,
+                        valueAlt:int.parse(vehicle.coolantDesired ),
                         icon: AppIcons.broken['coolant']!,
                         mainLabel: 'Coolant Temp',
                         subLabel: 'current',

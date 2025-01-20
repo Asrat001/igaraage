@@ -9,9 +9,9 @@ class VehicleCard extends StatelessWidget {
   final String name;
   final String description;
   final Widget image;
-  final int errors;
+  final String errors;
   final String transmission;
-  final int numSeats;
+  final String numSeats;
   final String status;
 
   const VehicleCard({
@@ -115,7 +115,7 @@ class VehicleCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: status == 'Disconnected'
                             ? AppColors.lightGrayMedium
-                            : errors > 0
+                            : int.parse(errors) > 0
                                 ? AppColors.errorLight
                                 : AppColors.successLight,
                         borderRadius: BorderRadius.circular(50),
@@ -130,7 +130,7 @@ class VehicleCard extends StatelessWidget {
                             Icons.circle,
                             color: status == 'Disconnected'
                                 ? AppColors.darkGrayLightest
-                                : errors > 0
+                                : int.parse(errors) > 0
                                     ? AppColors.errorDark
                                     : AppColors.successDark,
                             size: 10,
