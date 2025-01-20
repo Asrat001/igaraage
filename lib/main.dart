@@ -31,6 +31,7 @@ Future<void> main() async {
   );
 
   await Firebase.initializeApp(
+    name: "flowiuss-63184",
     options: DefaultFirebaseOptions.currentPlatform,
   );
 

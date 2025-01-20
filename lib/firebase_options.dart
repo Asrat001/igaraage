@@ -41,30 +41,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD29iaNqJGgkLXx2FLuJHz0grqqch9Yd4k',
-    appId: '1:916224851549:web:2f812c8fb38ab48b2d17b4',
+    apiKey: 'AIzaSyAqMZZjA_Ny-qcj9t12vxecxu8k-Q5DElc',
+    appId: '1:751867638908:android:c93fbb353fcf86482245f9',
     messagingSenderId: '916224851549',
-    projectId: 'garaage-14d0c',
+    projectId: 'flowiuss-63184',
     authDomain: 'garaage-14d0c.firebaseapp.com',
     storageBucket: 'garaage-14d0c.appspot.com',
     measurementId: 'G-0T72THKHV2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCJdcuhekojE4Ejg0MnV0olpYEENh59iiA',
-    appId: '1:916224851549:android:d2f72319ce720c632d17b4',
-    messagingSenderId: '916224851549',
-    projectId: 'garaage-14d0c',
-    storageBucket: 'garaage-14d0c.appspot.com',
+    apiKey: 'AIzaSyAqMZZjA_Ny-qcj9t12vxecxu8k-Q5DElc',
+    appId: '1:751867638908:android:c93fbb353fcf86482245f9',
+    messagingSenderId: '751867638908',
+    projectId: 'flowiuss-63184',
+    storageBucket: 'flowiuss-63184.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBI1CacwsUhv1V8mdEQ1KmnXwByRAJWP64',
-    appId: '1:916224851549:ios:b3f6fa4d5138c75e2d17b4',
-    messagingSenderId: '916224851549',
-    projectId: 'garaage-14d0c',
-    storageBucket: 'garaage-14d0c.appspot.com',
-    iosBundleId: 'com.example.garaage',
+    apiKey: 'AIzaSyAqMZZjA_Ny-qcj9t12vxecxu8k-Q5DElc',
+    appId: '1:751867638908:android:c93fbb353fcf86482245f9',
+    messagingSenderId: '751867638908',
+    projectId: 'flowiuss-63184',
+    storageBucket: 'flowiuss-63184.appspot.com',
+    iosBundleId: 'com.example.igaraage',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

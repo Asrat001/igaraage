@@ -17,16 +17,20 @@ class OnboardingContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: AppText.headingText,
-          textAlign: TextAlign.center,
+        Expanded(
+          child: Text(
+            title,
+            style: AppText.headingText,
+            textAlign: TextAlign.center,
+          ),
         ),
         const SizedBox(height: 12),
-        Text(
-          description,
-          style: AppText.bodyText,
-          textAlign: TextAlign.center,
+        Expanded(
+          child: Text(
+            description,
+            style: AppText.bodyText,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
